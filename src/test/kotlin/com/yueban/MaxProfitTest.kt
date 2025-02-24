@@ -20,14 +20,14 @@ class MaxProfitTest {
   @Test
   fun maxProfit1Test() {
     testCases.forEach { case ->
-      assertEquals(maxProfit1(case.prices), case.result)
+      assertEquals(case.result, maxProfit1(case.prices))
     }
   }
 
   @Test
   fun maxProfit2Test() {
     testCases.forEach { case ->
-      assertEquals(maxProfit2(case.prices), case.result)
+      assertEquals(case.result, maxProfit2(case.prices))
     }
   }
 }

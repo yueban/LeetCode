@@ -19,7 +19,7 @@ class ContainsDuplicateTest {
   @Test
   fun containsDuplicate1Test() {
     testCases.forEach { case ->
-      assertEquals(containsDuplicate1(case.nums), case.result)
+      assertEquals(case.result, containsDuplicate1(case.nums))
     }
   }
 }
