@@ -1,6 +1,6 @@
-package com.yueban
+package com.yueban.array
 
-import com.yueban.MaxProduct.maxProduct1
+import com.yueban.array.MaxProduct.maxProduct1
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

@@ -1,6 +1,6 @@
-package com.yueban
+package com.yueban.array
 
-import com.yueban.ContainsDuplicate.containsDuplicate1
+import com.yueban.array.ContainsDuplicate.containsDuplicate1
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

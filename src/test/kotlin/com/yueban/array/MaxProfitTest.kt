@@ -1,7 +1,7 @@
-package com.yueban
+package com.yueban.array
 
-import com.yueban.MaxProfit.maxProfit1
-import com.yueban.MaxProfit.maxProfit2
+import com.yueban.array.MaxProfit.maxProfit1
+import com.yueban.array.MaxProfit.maxProfit2
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

@@ -1,7 +1,7 @@
-package com.yueban
+package com.yueban.array
 
-import com.yueban.SearchInRotatedSortedArray.searchInRotatedSortedArray1
-import com.yueban.SearchInRotatedSortedArray.searchInRotatedSortedArray2
+import com.yueban.array.SearchInRotatedSortedArray.searchInRotatedSortedArray1
+import com.yueban.array.SearchInRotatedSortedArray.searchInRotatedSortedArray2
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

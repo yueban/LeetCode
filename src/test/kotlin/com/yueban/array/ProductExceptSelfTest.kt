@@ -1,8 +1,8 @@
-package com.yueban
+package com.yueban.array
 
-import com.yueban.ProductExceptSelf.productExceptSelf1
-import com.yueban.ProductExceptSelf.productExceptSelf2
-import com.yueban.ProductExceptSelf.productExceptSelf3
+import com.yueban.array.ProductExceptSelf.productExceptSelf1
+import com.yueban.array.ProductExceptSelf.productExceptSelf2
+import com.yueban.array.ProductExceptSelf.productExceptSelf3
 import kotlin.test.Test
 import kotlin.test.assertContentEquals
 

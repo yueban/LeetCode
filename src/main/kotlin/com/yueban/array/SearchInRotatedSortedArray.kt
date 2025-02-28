@@ -1,4 +1,4 @@
-package com.yueban
+package com.yueban.array
 
 object SearchInRotatedSortedArray {
   fun searchInRotatedSortedArray1(nums: IntArray, target: Int): Int {

@@ -1,7 +1,7 @@
-package com.yueban
+package com.yueban.array
 
-import com.yueban.FindMinRotatedSortedArray.findMinRotatedSortedArray1
-import com.yueban.FindMinRotatedSortedArray.findMinRotatedSortedArray2
+import com.yueban.array.FindMinRotatedSortedArray.findMinRotatedSortedArray1
+import com.yueban.array.FindMinRotatedSortedArray.findMinRotatedSortedArray2
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

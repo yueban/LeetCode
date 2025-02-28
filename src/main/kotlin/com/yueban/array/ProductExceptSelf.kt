@@ -1,4 +1,4 @@
-package com.yueban
+package com.yueban.array
 
 object ProductExceptSelf {
   fun productExceptSelf1(nums: IntArray): IntArray {

@@ -1,4 +1,4 @@
-package com.yueban
+package com.yueban.array
 
 object ContainsDuplicate {
   fun containsDuplicate1(nums: IntArray): Boolean {

@@ -1,8 +1,8 @@
-package com.yueban
+package com.yueban.array
 
-import com.yueban.TwoSum.twoSum1
-import com.yueban.TwoSum.twoSum2
-import com.yueban.TwoSum.twoSum3
+import com.yueban.array.TwoSum.twoSum1
+import com.yueban.array.TwoSum.twoSum2
+import com.yueban.array.TwoSum.twoSum3
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

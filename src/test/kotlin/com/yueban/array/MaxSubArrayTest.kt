@@ -1,9 +1,9 @@
-package com.yueban
+package com.yueban.array
 
-import com.yueban.MaxSubArray.maxSubArray1
-import com.yueban.MaxSubArray.maxSubArray2
-import com.yueban.MaxSubArray.maxSubArray3
-import com.yueban.MaxSubArray.maxSubArray4
+import com.yueban.array.MaxSubArray.maxSubArray1
+import com.yueban.array.MaxSubArray.maxSubArray2
+import com.yueban.array.MaxSubArray.maxSubArray3
+import com.yueban.array.MaxSubArray.maxSubArray4
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
