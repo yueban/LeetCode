@@ -5,7 +5,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class NumberOf1BitsTest {
-  data class TestCase(
+  class TestCase(
     val n: Int,
     val result: Int,
   )

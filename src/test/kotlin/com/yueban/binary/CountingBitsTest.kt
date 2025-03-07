@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertContentEquals
 
 class CountingBitsTest {
-  data class TestCase(
+  class TestCase(
     val n: Int,
     val result: IntArray,
   )

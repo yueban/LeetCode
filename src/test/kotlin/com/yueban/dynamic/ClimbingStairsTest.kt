@@ -8,7 +8,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class ClimbingStairsTest {
-  data class TestCase(
+  class TestCase(
     val n: Int,
     val result: Int,
   )

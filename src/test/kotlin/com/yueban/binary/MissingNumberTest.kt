@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class MissingNumberTest {
-  data class TestCase(
+  class TestCase(
     val nums: IntArray,
     val result: Int,
   )
