@@ -7,7 +7,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class JumpGameTest {
-  class TestCase(
+  private class TestCase(
     val nums: IntArray,
     val result: Boolean,
   )

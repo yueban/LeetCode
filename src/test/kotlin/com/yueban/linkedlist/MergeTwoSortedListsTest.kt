@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertTrue
 
 class MergeTwoSortedListsTest {
-  class TestCase(
+  private class TestCase(
     val list1: ListNode?,
     val list2: ListNode?,
     val result: ListNode?,

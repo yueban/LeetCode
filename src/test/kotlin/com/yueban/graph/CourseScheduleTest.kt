@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class CourseScheduleTest {
-  class TestCase(
+  private class TestCase(
     val numCourses: Int,
     val prerequisites: Array<IntArray>,
     val result: Boolean,

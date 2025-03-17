@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class LongestConsecutiveSequenceTest {
-  class TestCase(
+  private class TestCase(
     val nums: IntArray,
     val result: Int,
   )

@@ -7,7 +7,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class ContainerWithMostWaterTest {
-  class TestCase(
+  private class TestCase(
     val height: IntArray,
     val result: Int,
   )

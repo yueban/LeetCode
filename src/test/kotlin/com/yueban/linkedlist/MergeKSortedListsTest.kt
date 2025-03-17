@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertTrue
 
 class MergeKSortedListsTest {
-  class TestCase(
+  private class TestCase(
     val lists: Array<ListNode?>,
     val result: ListNode?,
   )

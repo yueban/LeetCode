@@ -5,7 +5,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class CoinChangeTest {
-  class TestCase(
+  private class TestCase(
     val coins: IntArray,
     val amount: Int,
     val result: Int,

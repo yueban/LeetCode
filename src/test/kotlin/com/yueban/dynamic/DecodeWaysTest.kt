@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class DecodeWaysTest {
-  class TestCase(
+  private class TestCase(
     val s: String,
     val result: Int,
   )

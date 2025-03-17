@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class LinkedListCycleTest {
-  class TestCase(
+  private class TestCase(
     val head: ListNode?,
     val result: Boolean,
   )

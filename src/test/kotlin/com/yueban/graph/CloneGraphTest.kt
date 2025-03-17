@@ -5,7 +5,7 @@ import com.yueban.graph.CloneGraph.cloneGraph2
 import kotlin.test.Test
 
 class CloneGraphTest {
-  class TestCase(
+  private class TestCase(
     val node: Node?,
     val result: Node?,
   )

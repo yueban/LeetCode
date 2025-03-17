@@ -7,7 +7,7 @@ import kotlin.test.Test
 import kotlin.test.assertContentEquals
 
 class ProductExceptSelfTest {
-  class TestCase(
+  private class TestCase(
     val nums: IntArray,
     val result: IntArray,
   )

@@ -7,7 +7,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class TwoSumTest {
-  class TestCase(
+  private class TestCase(
     val nums: IntArray,
     val target: Int,
     val result: Set<Int>,

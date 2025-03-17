@@ -5,7 +5,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class NonOverlappingIntervalsTest {
-  class TestCase(
+  private class TestCase(
     val intervals: Array<IntArray>,
     val result: Int,
   )

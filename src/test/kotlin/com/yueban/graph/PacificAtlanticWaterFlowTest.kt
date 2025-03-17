@@ -5,7 +5,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class PacificAtlanticWaterFlowTest {
-  class TestCase(
+  private class TestCase(
     val heights: Array<IntArray>,
     val result: List<List<Int>>,
   )

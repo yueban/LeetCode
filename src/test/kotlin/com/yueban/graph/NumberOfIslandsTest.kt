@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class NumberOfIslandsTest {
-  class TestCase(
+  private class TestCase(
     val grid: Array<CharArray>,
     val result: Int,
   )

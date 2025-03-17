@@ -5,7 +5,7 @@ import kotlin.test.Test
 import kotlin.test.assertTrue
 
 class MergeIntervalsTest {
-  class TestCase(
+  private class TestCase(
     val intervals: Array<IntArray>,
     val result: Array<IntArray>,
   )

@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class UniquePathsTest {
-  class TestCase(
+  private class TestCase(
     val m: Int,
     val n: Int,
     val result: Int,

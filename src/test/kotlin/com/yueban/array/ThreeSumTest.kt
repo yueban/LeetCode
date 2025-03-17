@@ -8,7 +8,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class ThreeSumTest {
-  class TestCase(
+  private class TestCase(
     val nums: IntArray,
     val result: List<List<Int>>,
   )

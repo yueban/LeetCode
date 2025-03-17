@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class WordBreakTest {
-  class TestCase(
+  private class TestCase(
     val s: String,
     val wordDict: List<String>,
     val result: Boolean,

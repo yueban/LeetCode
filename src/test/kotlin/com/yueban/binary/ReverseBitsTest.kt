@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class ReverseBitsTest {
-  class TestCase(
+  private class TestCase(
     val n: Int,
     val result: Int,
   )

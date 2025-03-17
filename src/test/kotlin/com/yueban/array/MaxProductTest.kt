@@ -5,7 +5,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class MaxProductTest {
-  class TestCase(
+  private class TestCase(
     val nums: IntArray,
     val result: Int,
   )

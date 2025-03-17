@@ -5,7 +5,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class SumOfTwoIntegersTest {
-  class TestCase(
+  private class TestCase(
     val a: Int,
     val b: Int,
     val result: Int,

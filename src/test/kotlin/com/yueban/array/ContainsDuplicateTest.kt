@@ -5,7 +5,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class ContainsDuplicateTest {
-  class TestCase(
+  private class TestCase(
     val nums: IntArray,
     val result: Boolean,
   )

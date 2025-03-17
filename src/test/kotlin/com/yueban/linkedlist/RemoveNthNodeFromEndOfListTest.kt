@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertTrue
 
 class RemoveNthNodeFromEndOfListTest {
-  class TestCase(
+  private class TestCase(
     val head: ListNode?,
     val n: Int,
     val result: ListNode?,

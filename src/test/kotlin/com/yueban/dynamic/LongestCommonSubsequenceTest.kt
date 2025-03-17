@@ -5,7 +5,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class LongestCommonSubsequenceTest {
-  class TestCase(
+  private class TestCase(
     val text1: String,
     val text2: String,
     val result: Int,

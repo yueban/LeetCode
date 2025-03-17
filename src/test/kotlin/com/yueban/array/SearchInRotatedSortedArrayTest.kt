@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class SearchInRotatedSortedArrayTest {
-  class TestCase(
+  private class TestCase(
     val nums: IntArray,
     val target: Int,
     val result: Int,
