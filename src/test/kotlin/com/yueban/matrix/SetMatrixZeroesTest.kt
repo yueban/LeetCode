@@ -7,7 +7,7 @@ import kotlin.test.Test
 import kotlin.test.assertTrue
 
 class SetMatrixZeroesTest {
-  class TestCase(
+  private class TestCase(
     val matrix: Array<IntArray>,
     val result: Array<IntArray>,
   )

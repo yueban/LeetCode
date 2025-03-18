@@ -5,7 +5,7 @@ import kotlin.test.Test
 import kotlin.test.assertTrue
 
 class RotateImageTest {
-  class TestCase(
+  private class TestCase(
     val matrix: Array<IntArray>,
     val result: Array<IntArray>,
   )

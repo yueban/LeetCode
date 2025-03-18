@@ -6,7 +6,7 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class SpiralMatrixTest {
-  class TestCase(
+  private class TestCase(
     val matrix: Array<IntArray>,
     val result: List<Int>,
   )
