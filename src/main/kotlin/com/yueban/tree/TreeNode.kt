@@ -1,5 +1,6 @@
 package com.yueban.tree
 
+import com.yueban.tree.SameTree.sameTree1
 import java.util.*
 
 class TreeNode(var `val`: Int) {
@@ -33,3 +34,11 @@ fun Array<Int?>.toTreeNode(): TreeNode? {
 
   return root
 }
+
+fun areTreesEqual(expected: TreeNode?, actual: TreeNode?): Boolean =
+  when {
+    expected == null && actual == null -> true
+    else -> expected?.`val` == actual?.`val` &&
+      sameTree1(expected?.left, actual?.left) &&
+      sameTree1(expected?.right, actual?.right)
+  }
