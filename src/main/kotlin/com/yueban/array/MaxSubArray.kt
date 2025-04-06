@@ -67,7 +67,7 @@ object MaxSubArray {
       val leftSum = maxSubSum(nums, start, middle)
       val rightSum = maxSubSum(nums, middle + 1, end)
       val crossingSum = maxCrossingSum(nums, start, middle, end)
-      return max(max(leftSum, rightSum), crossingSum)
+      return maxOf(leftSum, rightSum, crossingSum)
     }
 
     return maxSubSum(nums, 0, nums.size - 1)
