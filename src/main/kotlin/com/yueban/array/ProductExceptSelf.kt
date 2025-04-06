@@ -18,7 +18,6 @@ object ProductExceptSelf {
     nums.forEachIndexed { index, num ->
       if (index == 0) {
         forthProducts[index] = 1 * num
-
       } else {
         forthProducts[index] = forthProducts[index - 1] * num
       }
