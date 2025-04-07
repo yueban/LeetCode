@@ -1,11 +1,11 @@
 package com.yueban.array
 
-import com.yueban.array.MaxProfit.maxProfit1
-import com.yueban.array.MaxProfit.maxProfit2
+import com.yueban.array.BestTimeToBuyAndSellStock.bestTimeToBuyAndSellStock1
+import com.yueban.array.BestTimeToBuyAndSellStock.bestTimeToBuyAndSellStock2
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class MaxProfitTest {
+class BestTimeToBuyAndSellStockTest {
   private class TestCase(
     val prices: IntArray,
     val result: Int,
@@ -18,16 +18,16 @@ class MaxProfitTest {
   )
 
   @Test
-  fun maxProfit1Test() {
+  fun bestTimeToBuyAndSellStock1Test() {
     testCases.forEach { case ->
-      assertEquals(case.result, maxProfit1(case.prices))
+      assertEquals(case.result, bestTimeToBuyAndSellStock1(case.prices))
     }
   }
 
   @Test
-  fun maxProfit2Test() {
+  fun bestTimeToBuyAndSellStock2Test() {
     testCases.forEach { case ->
-      assertEquals(case.result, maxProfit2(case.prices))
+      assertEquals(case.result, bestTimeToBuyAndSellStock2(case.prices))
     }
   }
 }

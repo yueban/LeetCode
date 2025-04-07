@@ -2,8 +2,8 @@ package com.yueban.array
 
 import kotlin.math.max
 
-object MaxProduct {
-  fun maxProduct1(nums: IntArray): Int {
+object MaximumProductSubarray {
+  fun maximumProductSubarray1(nums: IntArray): Int {
     var result = Int.MIN_VALUE
     for (n in nums) {
       result = max(result, n)

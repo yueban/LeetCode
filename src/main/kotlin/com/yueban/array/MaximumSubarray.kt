@@ -2,8 +2,8 @@ package com.yueban.array
 
 import kotlin.math.max
 
-object MaxSubArray {
-  fun maxSubArray1(nums: IntArray): Int {
+object MaximumSubarray {
+  fun maximumSubarray1(nums: IntArray): Int {
     var sum = Int.MIN_VALUE
     for (i in 0 until nums.size) {
       for (j in i until nums.size) {
@@ -17,7 +17,7 @@ object MaxSubArray {
     return sum
   }
 
-  fun maxSubArray2(nums: IntArray): Int {
+  fun maximumSubarray2(nums: IntArray): Int {
     var sum = Int.MIN_VALUE
     for (i in 0 until nums.size) {
       var tempSum = 0
@@ -29,7 +29,7 @@ object MaxSubArray {
     return sum
   }
 
-  fun maxSubArray3(nums: IntArray): Int {
+  fun maximumSubarray3(nums: IntArray): Int {
     var sum = nums[0]
     var tempSum = 0
     nums.forEach { num ->
@@ -40,7 +40,7 @@ object MaxSubArray {
     return sum
   }
 
-  fun maxSubArray4(nums: IntArray): Int {
+  fun maximumSubarray4(nums: IntArray): Int {
     fun maxCrossingSum(nums: IntArray, start: Int, middle: Int, end: Int): Int {
       var sum = 0
       var leftSum = Int.MIN_VALUE

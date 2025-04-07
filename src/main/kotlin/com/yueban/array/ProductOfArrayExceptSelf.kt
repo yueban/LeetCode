@@ -1,7 +1,7 @@
 package com.yueban.array
 
-object ProductExceptSelf {
-  fun productExceptSelf1(nums: IntArray): IntArray {
+object ProductOfArrayExceptSelf {
+  fun productOfArrayExceptSelf1(nums: IntArray): IntArray {
     val result = IntArray(nums.size) { 1 }
     nums.forEachIndexed { index, num ->
       for (resultIndex in result.indices) {
@@ -13,7 +13,7 @@ object ProductExceptSelf {
     return result
   }
 
-  fun productExceptSelf2(nums: IntArray): IntArray {
+  fun productOfArrayExceptSelf2(nums: IntArray): IntArray {
     val forthProducts = IntArray(nums.size)
     nums.forEachIndexed { index, num ->
       if (index == 0) {
@@ -43,7 +43,7 @@ object ProductExceptSelf {
     return result
   }
 
-  fun productExceptSelf3(nums: IntArray): IntArray {
+  fun productOfArrayExceptSelf3(nums: IntArray): IntArray {
     var pre = 1
     var post = 1
 

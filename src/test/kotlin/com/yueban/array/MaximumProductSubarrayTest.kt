@@ -1,10 +1,10 @@
 package com.yueban.array
 
-import com.yueban.array.MaxProduct.maxProduct1
+import com.yueban.array.MaximumProductSubarray.maximumProductSubarray1
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class MaxProductTest {
+class MaximumProductSubarrayTest {
   private class TestCase(
     val nums: IntArray,
     val result: Int,
@@ -17,9 +17,9 @@ class MaxProductTest {
   )
 
   @Test
-  fun maxProduct1Test() {
+  fun maximumProductSubarray1Test() {
     testCases.forEach { case ->
-      assertEquals(case.result, maxProduct1(case.nums))
+      assertEquals(case.result, maximumProductSubarray1(case.nums))
     }
   }
 }

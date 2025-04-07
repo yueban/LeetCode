@@ -2,8 +2,8 @@ package com.yueban.array
 
 import kotlin.math.min
 
-object FindMinRotatedSortedArray {
-  fun findMinRotatedSortedArray1(nums: IntArray): Int {
+object FindMinimumInRotatedSortedArray {
+  fun findMinimumInRotatedSortedArray1(nums: IntArray): Int {
     if (nums.size == 1) return nums[0]
     for (i in 1 until nums.size) {
       if (nums[i] < nums[i - 1]) {
@@ -13,7 +13,7 @@ object FindMinRotatedSortedArray {
     return nums[0]
   }
 
-  fun findMinRotatedSortedArray2(nums: IntArray): Int {
+  fun findMinimumInRotatedSortedArray2(nums: IntArray): Int {
     fun findMin(nums: IntArray, start: Int, end: Int): Int {
       if (start > end) return Int.MAX_VALUE
       if (start == end) return nums[start]

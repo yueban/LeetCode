@@ -1,11 +1,11 @@
 package com.yueban.array
 
-import com.yueban.array.FindMinRotatedSortedArray.findMinRotatedSortedArray1
-import com.yueban.array.FindMinRotatedSortedArray.findMinRotatedSortedArray2
+import com.yueban.array.FindMinimumInRotatedSortedArray.findMinimumInRotatedSortedArray1
+import com.yueban.array.FindMinimumInRotatedSortedArray.findMinimumInRotatedSortedArray2
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class FindMinRotatedSortedArrayTest {
+class FindMinimumInRotatedSortedArrayTest {
   private class TestCase(
     val nums: IntArray,
     val result: Int,
@@ -19,16 +19,16 @@ class FindMinRotatedSortedArrayTest {
   )
 
   @Test
-  fun findMinRotatedSortedArray1Test() {
+  fun findMinimumInRotatedSortedArray1Test() {
     testCases.forEach { case ->
-      assertEquals(case.result, findMinRotatedSortedArray1(case.nums))
+      assertEquals(case.result, findMinimumInRotatedSortedArray1(case.nums))
     }
   }
 
   @Test
-  fun findMinRotatedSortedArray2Test() {
+  fun findMinimumInRotatedSortedArray2Test() {
     testCases.forEach { case ->
-      assertEquals(case.result, findMinRotatedSortedArray2(case.nums))
+      assertEquals(case.result, findMinimumInRotatedSortedArray2(case.nums))
     }
   }
 }

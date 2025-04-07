@@ -1,13 +1,13 @@
 package com.yueban.array
 
-import com.yueban.array.MaxSubArray.maxSubArray1
-import com.yueban.array.MaxSubArray.maxSubArray2
-import com.yueban.array.MaxSubArray.maxSubArray3
-import com.yueban.array.MaxSubArray.maxSubArray4
+import com.yueban.array.MaximumSubarray.maximumSubarray1
+import com.yueban.array.MaximumSubarray.maximumSubarray2
+import com.yueban.array.MaximumSubarray.maximumSubarray3
+import com.yueban.array.MaximumSubarray.maximumSubarray4
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-class MaxSubArrayTest {
+class MaximumSubarrayTest {
   private class TestCase(
     val nums: IntArray,
     val result: Int,
@@ -23,30 +23,30 @@ class MaxSubArrayTest {
   )
 
   @Test
-  fun maxSubArray1Test() {
+  fun maximumSubarray1Test() {
     testCases.forEach { case ->
-      assertEquals(case.result, maxSubArray1(case.nums))
+      assertEquals(case.result, maximumSubarray1(case.nums))
     }
   }
 
   @Test
-  fun maxSubArray2Test() {
+  fun maximumSubarray2Test() {
     testCases.forEach { case ->
-      assertEquals(case.result, maxSubArray2(case.nums))
+      assertEquals(case.result, maximumSubarray2(case.nums))
     }
   }
 
   @Test
-  fun maxSubArray3Test() {
+  fun maximumSubarray3Test() {
     testCases.forEach { case ->
-      assertEquals(case.result, maxSubArray3(case.nums))
+      assertEquals(case.result, maximumSubarray3(case.nums))
     }
   }
 
   @Test
-  fun maxSubArray4Test() {
+  fun maximumSubarray4Test() {
     testCases.forEach { case ->
-      assertEquals(case.result, maxSubArray4(case.nums))
+      assertEquals(case.result, maximumSubarray4(case.nums))
     }
   }
 }
