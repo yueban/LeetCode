@@ -1,7 +1,7 @@
 package com.yueban.binary
 
-import com.yueban.binary.ReserveBits.reverseBits1
-import com.yueban.binary.ReserveBits.reverseBits2
+import com.yueban.binary.ReverseBits.reverseBits1
+import com.yueban.binary.ReverseBits.reverseBits2
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

@@ -1,6 +1,6 @@
 package com.yueban.binary
 
-object ReserveBits {
+object ReverseBits {
   fun reverseBits1(n: Int): Int {
     return n.toUInt().toString(2).reversed().padEnd(32, '0').toUInt(2).toInt()
   }
