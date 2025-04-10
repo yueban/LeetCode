@@ -23,16 +23,25 @@ object LongestIncreasingSubsequence {
    * lis is not the current longest increasing subsequence.
    * lis maintains a list of “buckets” where each bucket represents a valid subsequence.
    * eg.
-   *    For input nums [1,3,5,2,4], if current lis is [1,3,5] and nums[i] is 2, the result of lis after binarySearch will be [1,2,5]
-   *    then next nums[i] is 4, the result of lis after binarySearch will be [1,2,4].
-   *    So lis maintains a valid subsequence for each lis[0]...lis[ptr] which means lis[0] is the smallest valid longest increasing subsequence of length 1,
-   *    as well as lis[1]...lis[ptr] represents the smallest valid longest increasing subsequence of length 2...ptr+1.
-   *    So the key point of binarySearch is to make sure lis always represents the **smallest** valid longest increasing subsequence.
+   *    For input nums [1,3,5,2,4].
+   *    Firstly, set lis[0] = nums[0] = 1, ptr = 0.
+   *    Then start iterating nums from index 1:
+   *      for nums[1], nums[1] > lis[0], so lis[1] = nums[1] = 3, ptr = 1
+   *      for nums[2], nums[2] > lis[1], so lis[2] = nums[2] = 5, ptr = 2
+   *      for nums[3], nums[3] < lis[2], find the smallest number that larger than nums[3] which is lis[1], and replace it with nums[3],
+   *      so lis[1] = nums[3] = 2, ptr = 2.
+   *      for nums[4], nums[4] < lis[2], find the smallest number that larger than nums[4] which is lis[2], and replace it with nums[4],
+   *      so lis[2] = nums[4] = 4, ptr = 2.
+   *
+   * So lis literally represents the possibly smallest number for a increasing subsequence. which means lis[0] is the
+   * smallest increasing subsequence of length 1. lis[0], lis[1] is the smallest increasing subsequence of length 2.
+   * lis[0]...lis\[n\] is the smallest increasing subsequence of length n+1.
+   *
+   * Thus, the longest increasing subsequence is lis[0]...lis[ptr], and its length is ptr + 1.
    */
   fun longestIncreasingSubsequence2(nums: IntArray): Int {
     val lis = IntArray(nums.size)
     lis[0] = nums[0]
-    var ptr = 0
 
     fun binarySearchAndReplace(r: Int, target: Int) {
       var left = 0
@@ -49,6 +58,7 @@ object LongestIncreasingSubsequence {
       lis[left] = target
     }
 
+    var ptr = 0
     for (i in 1 until nums.size) {
       if (lis[ptr] < nums[i]) {
         ptr += 1
