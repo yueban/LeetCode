@@ -4,7 +4,7 @@ import kotlin.math.max
 
 object HouseRobber {
   /**
-   * dp\[i\] means the maximum amount of money you can rob till the ith house.
+   * `dp[i]` means the maximum amount of money you can rob till the ith house.
    */
   fun houseRobber1(nums: IntArray): Int {
     if (nums.size == 1) return nums[0]

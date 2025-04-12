@@ -24,20 +24,20 @@ object LongestIncreasingSubsequence {
    * lis maintains a list of “buckets” where each bucket represents a valid subsequence.
    * eg.
    *    For input nums [1,3,5,2,4].
-   *    Firstly, set lis[0] = nums[0] = 1, ptr = 0.
+   *    Firstly, set `lis[0] = nums[0] = 1` and `ptr = 0`.
    *    Then start iterating nums from index 1:
-   *      for nums[1], nums[1] > lis[0], so lis[1] = nums[1] = 3, ptr = 1
-   *      for nums[2], nums[2] > lis[1], so lis[2] = nums[2] = 5, ptr = 2
-   *      for nums[3], nums[3] < lis[2], find the smallest number that larger than nums[3] which is lis[1], and replace it with nums[3],
-   *      so lis[1] = nums[3] = 2, ptr = 2.
-   *      for nums[4], nums[4] < lis[2], find the smallest number that larger than nums[4] which is lis[2], and replace it with nums[4],
-   *      so lis[2] = nums[4] = 4, ptr = 2.
+   *      for `nums[1]`, `nums[1] > lis[0]`, so `lis[1] = nums[1] = 3` and `ptr = 1`
+   *      for `nums[2]`, `nums[2] > lis[1]`, so `lis[2] = nums[2] = 5` and `ptr = 2`
+   *      for `nums[3]`, `nums[3] < lis[2]`, find the smallest number that larger than `nums[3]` which is `lis[1]`, and replace it with `nums[3]`,
+   *      so `lis[1] = nums[3] = 2` and `ptr = 2`.
+   *      for `nums[4]`, `nums[4] < lis[2]`, find the smallest number that larger than `nums[4]` which is `lis[2]`, and replace it with `nums[4]`,
+   *      so `lis[2] = nums[4] = 4` and `ptr = 2`.
    *
-   * So lis literally represents the possibly smallest number for a increasing subsequence. which means lis[0] is the
-   * smallest increasing subsequence of length 1. lis[0], lis[1] is the smallest increasing subsequence of length 2.
-   * lis[0]...lis\[n\] is the smallest increasing subsequence of length n+1.
+   * So lis literally represents the possibly smallest number for a increasing subsequence. which means `lis[0]` is the
+   * smallest increasing subsequence of length 1. `lis[0], lis[1]` is the smallest increasing subsequence of length 2.
+   * `lis[0]...lis[n]` is the smallest increasing subsequence of length n+1.
    *
-   * Thus, the longest increasing subsequence is lis[0]...lis[ptr], and its length is ptr + 1.
+   * Thus, the longest increasing subsequence is `lis[0]...lis[ptr]`, and its length is ptr + 1.
    */
   fun longestIncreasingSubsequence2(nums: IntArray): Int {
     val lis = IntArray(nums.size)

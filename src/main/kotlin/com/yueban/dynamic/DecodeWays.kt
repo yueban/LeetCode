@@ -35,12 +35,12 @@ object DecodeWays {
   }
 
   /**
-   * iterate from the end of string to start. dp\[i\] means the amount of ways to decode s till s\[i..n-1\].
-   * for every s\[i\], there are three circumstances:
-   *    1. s\[i\] is '0', so substring s\[i..n-1\] starts with '0', means there is no possible way to decode s\[i..n-1\], so dp\[i\] = 0
-   *    2. s\[i\] is not '0', we accumulate two options for dp\[i\]
-   *      2.1 we pick one letter to decode, so dp\[i\] += dp\[i + 1\]
-   *      2.2 we pick two letters **if possible** to decode, so dp\[i\] += dp\[i + 2\]
+   * iterate from the end of string to start. `dp[i]` means the amount of ways to decode s till `s[i..n-1]`.
+   * for every `s[i]`, there are three circumstances:
+   *    1. `s[i]` is '0', so substring `s[i..n-1]` starts with '0', means there is no possible way to decode `s[i..n-1]`, so `dp[i]` = 0
+   *    2. `s[i]` is not '0', we accumulate two options for `dp[i]`
+   *      2.1 we pick one letter to decode, so `dp[i] += dp[i + 1]`
+   *      2.2 we pick two letters **if possible** to decode, so `dp[i] += dp[i + 2]`
    */
   fun decodeWays2(s: String): Int {
     val n = s.length

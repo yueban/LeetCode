@@ -4,8 +4,8 @@ import kotlin.math.max
 
 object HouseRobberII {
   /**
-   * dp\[i\] means the maximum amount of money you can rob till the ith house.
-   * dp1 starts from nums[0] to nums[n-2]. dp2 starts from nums[1] to nums[n-1].
+   * `dp[i]` means the maximum amount of money you can rob till the ith house.
+   * `dp1` starts from `nums[0]` to `nums[n-2]`. `dp2` starts from `nums[1]` to `nums[n-1]`.
    */
   fun houseRobberII1(nums: IntArray): Int {
     if (nums.size == 1) return nums[0]

@@ -43,7 +43,7 @@ object NumberOfIslands {
 
   /**
    * Optimize from [numberOfIslands1], we don't need lands and visited to track data within dfs,
-   * Simply mark grid\[i\]\[j\] as a char different from '1' like '2', which means this grid has been visited.
+   * Simply mark `grid[i][j]` as a char different from '1' like '2', which means this grid has been visited.
    * By this way, we can simply iterate all grids, every time we dfs a "land" grid, we will mark all the adjacent lands to '2'.
    * So the lands marked as '2' will be skipped both in iterating and dfs function.
    */
