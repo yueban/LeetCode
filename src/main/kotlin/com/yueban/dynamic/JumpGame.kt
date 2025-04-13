@@ -41,6 +41,12 @@ object JumpGame {
 
   /**
    * O(n)
+   *
+   * targetIndex represents the leftmost position from which you can reach (or jump over) the current "target" position.
+   * Initially, it's set to the last array index, since that’s our final goal.
+   *
+   * we iterate the array from right-to-left. For each index i, it checks `i + nums[i] >= targetIndex`, to determine
+   * if from that position you can reach the current targetIndex.
    */
   fun jumpGame3(nums: IntArray): Boolean {
     var targetIndex = nums.size - 1
