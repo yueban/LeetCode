@@ -48,7 +48,9 @@ object PacificAtlanticWaterFlow {
 
     val m = heights.size
     val n = heights[0].size
+    // mark if pacific[i][j] can flow into pacific ocean
     val pacific = Array(m) { BooleanArray(n) }
+    // mark if atlantic[i][j] can flow into atlantic ocean
     val atlantic = Array(m) { BooleanArray(n) }
 
     // search for points that can flow into ocean from lower points to higher points
@@ -62,16 +64,16 @@ object PacificAtlanticWaterFlow {
     }
 
     for (i in 0 until m) {
-      // from top side for pacific
+      // from left side to pacific ocean
       dfs(i, 0, pacific, heights[i][0])
-      // from bottom side for atlantic
+      // from right side to atlantic ocean
       dfs(i, n - 1, atlantic, heights[i][n - 1])
     }
 
     for (i in 0 until n) {
-      // from left side for pacific
+      // from top side to pacific ocean
       dfs(0, i, pacific, heights[0][i])
-      // from right side for atlantic
+      // from bottom side to atlantic ocean
       dfs(m - 1, i, atlantic, heights[m - 1][i])
     }
 
