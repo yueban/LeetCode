@@ -30,7 +30,7 @@ object RemoveNthNodeFromEndOfList {
     var t = start
     // we assume the size of ListNodes is sz
     // the h pointer is advanced n nodes into the list
-    for (i in 0..<n) {
+    for (i in 0 until n) {
       h = h!!.next
     }
 
@@ -42,6 +42,7 @@ object RemoveNthNodeFromEndOfList {
       t = t.next!!
     }
 
+    // remove the Nth node from the end of the list
     val z = t.next ?: return null
     t.next = z.next
     return start.next
