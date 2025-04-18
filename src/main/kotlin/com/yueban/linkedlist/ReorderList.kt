@@ -13,9 +13,11 @@ object ReorderList {
     }
 
     // reverse the last half list as second (starts by slow.next)
+    // second is the reversed last half list
     var second = reverseLinkedList(slow?.next)
     // cut the first half list as first (ends by slow)
     slow?.next = null
+    // first is the first half list
     var first = head
 
     // merge two lists
