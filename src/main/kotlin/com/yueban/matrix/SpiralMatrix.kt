@@ -1,6 +1,16 @@
 package com.yueban.matrix
 
+import com.yueban.matrix.SpiralMatrix.Direction.*
+import com.yueban.matrix.SpiralMatrix.spiralMatrix1
+
 object SpiralMatrix {
+  enum class Direction {
+    LEFT_TO_RIGHT,
+    TOP_TO_BOTTOM,
+    RIGHT_TO_LEFT,
+    BOTTOM_TO_TOP,
+  }
+
   /**
    * brutal way to simulate pointer moving
    */
@@ -12,8 +22,8 @@ object SpiralMatrix {
 
     var curX = 0
     var curY = 0
-    // 0:right 1:bottom 2:left 3:top
-    var direction = 0
+
+    var direction: Direction = LEFT_TO_RIGHT
     var repeat = false
 
     val result = mutableListOf<Int>()
@@ -22,59 +32,59 @@ object SpiralMatrix {
     while (left < right - 1 && top < bottom - 1) {
       if (repeat) {
         when (direction) {
-          0 -> { // 0:right
+          LEFT_TO_RIGHT -> {
             left++
             curY++
           }
-          1 -> { // 1:bottom
+          TOP_TO_BOTTOM -> {
             top++
             curX++
           }
-          2 -> { // 2:left
+          RIGHT_TO_LEFT -> {
             right--
             curY--
           }
-          3 -> { // 3:top
+          BOTTOM_TO_TOP -> {
             bottom--
             curX--
           }
         }
       } else {
         when (direction) {
-          0 -> { // 0:right
+          LEFT_TO_RIGHT -> {
             if (curY == right - 1) {
               top++
-              direction++
+              direction = TOP_TO_BOTTOM
               repeat = right - left == 2
               continue
             } else {
               curY++
             }
           }
-          1 -> { // 1:bottom
+          TOP_TO_BOTTOM -> {
             if (curX == bottom - 1) {
               right--
-              direction++
+              direction = RIGHT_TO_LEFT
               repeat = bottom - top == 2
               continue
             } else {
               curX++
             }
           }
-          2 -> { // 2:left
+          RIGHT_TO_LEFT -> {
             if (curY == left + 1) {
               bottom--
-              direction++
+              direction = BOTTOM_TO_TOP
               repeat = right - left == 2
               continue
             } else {
               curY--
             }
           }
-          3 -> { // 3:top
+          BOTTOM_TO_TOP -> {
             if (curX == top + 1) {
               left++
-              direction = 0
+              direction = LEFT_TO_RIGHT
               repeat = bottom - top == 2
               continue
             } else {
@@ -94,65 +104,69 @@ object SpiralMatrix {
    * basically same as [spiralMatrix1] but a bit more readable
    */
   fun spiralMatrix2(matrix: Array<IntArray>): List<Int> {
-    val verticalSize = matrix.size
-    val horizontalSize = matrix[0].size
-    val size = verticalSize * horizontalSize
+    val m = matrix.size
+    val n = matrix[0].size
+    val size = m * n
 
     var x = 0
     var y = 0
 
-    // 0:ltr 1:ttb 2:rtl 3:btt
-    val linesCount = IntArray(4)
+    // cache lines count consumed (iterated) on all directions
+    val linesCount = mutableMapOf(
+      LEFT_TO_RIGHT to 0,
+      TOP_TO_BOTTOM to 0,
+      RIGHT_TO_LEFT to 0,
+      BOTTOM_TO_TOP to 0,
+    )
 
-    // 0:ltr 1:ttb 2:rtl 3:btt
-    var currentOrder = 0
+    var direction = LEFT_TO_RIGHT
     val result = mutableListOf<Int>()
     result.add(matrix[x][y])
 
     while (result.size < size) {
-      when (currentOrder) {
-        0 -> {
+      when (direction) {
+        LEFT_TO_RIGHT -> {
           // last point of this horizontal line
-          val newY = horizontalSize - 1 - linesCount[1]
+          val newY = n - 1 - linesCount[TOP_TO_BOTTOM]!!
           for (col in y + 1..newY) {
             result.add(matrix[x][col])
           }
           y = newY
-          currentOrder = 1
-          linesCount[0]++
+          direction = TOP_TO_BOTTOM
+          linesCount[LEFT_TO_RIGHT] = linesCount[LEFT_TO_RIGHT]!! + 1
         }
 
-        1 -> {
+        TOP_TO_BOTTOM -> {
           // last point of this vertical line
-          val newX = verticalSize - 1 - linesCount[2]
+          val newX = m - 1 - linesCount[RIGHT_TO_LEFT]!!
           for (row in x + 1..newX) {
             result.add(matrix[row][y])
           }
           x = newX
-          currentOrder = 2
-          linesCount[1]++
+          direction = RIGHT_TO_LEFT
+          linesCount[TOP_TO_BOTTOM] = linesCount[TOP_TO_BOTTOM]!! + 1
         }
 
-        2 -> {
+        RIGHT_TO_LEFT -> {
           // first point of this horizontal line
-          val newY = linesCount[3]
+          val newY = linesCount[BOTTOM_TO_TOP]!!
           for (col in y - 1 downTo newY) {
             result.add(matrix[x][col])
           }
           y = newY
-          currentOrder = 3
-          linesCount[2]++
+          direction = BOTTOM_TO_TOP
+          linesCount[RIGHT_TO_LEFT] = linesCount[RIGHT_TO_LEFT]!! + 1
         }
 
-        else -> {
+        BOTTOM_TO_TOP -> {
           // first point of this vertical line
-          val newX = linesCount[0]
+          val newX = linesCount[LEFT_TO_RIGHT]!!
           for (row in x - 1 downTo newX) {
             result.add(matrix[row][y])
           }
           x = newX
-          currentOrder = 0
-          linesCount[3]++
+          direction = LEFT_TO_RIGHT
+          linesCount[BOTTOM_TO_TOP] = linesCount[BOTTOM_TO_TOP]!! + 1
         }
       }
     }
