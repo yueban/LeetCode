@@ -1,5 +1,7 @@
 package com.yueban.matrix
 
+import com.yueban.matrix.WordSearch.wordSearch1
+
 object WordSearch {
   /**
    * brutal way to solve the problem, time complexity is O(m * n * 4^k)
@@ -8,33 +10,24 @@ object WordSearch {
     val m = board.size
     val n = board[0].size
 
-    fun wordSearch(x: Int, y: Int, wordCharIndex: Int, visited: MutableSet<Pair<Int, Int>>): Boolean {
-      if (x < 0 || x >= m || y < 0 || y >= n || visited.contains(x to y)) return false
+    fun wordSearch(x: Int, y: Int, index: Int, visited: MutableSet<Pair<Int, Int>>): Boolean {
+      if (index == word.length) return true
+      if (x < 0 || x >= m || y < 0 || y >= n || visited.contains(x to y) || board[x][y] != word[index]) return false
 
-      val wordChar = word[wordCharIndex]
-      if (board[x][y] == wordChar) {
-        visited.add(x to y)
-        if (wordCharIndex == word.length - 1) {
-          return true
-        } else {
-          val nextCharIndex = wordCharIndex + 1
-          if (wordSearch(x + 1, y, nextCharIndex, visited) ||
-            wordSearch(x - 1, y, nextCharIndex, visited) ||
-            wordSearch(x, y + 1, nextCharIndex, visited) ||
-            wordSearch(x, y - 1, nextCharIndex, visited)
-          ) {
-            return true
-          }
-        }
-        visited.remove(x to y)
-      }
-      return false
+      visited.add(x to y)
+
+      val result = wordSearch(x + 1, y, index + 1, visited) ||
+        wordSearch(x - 1, y, index + 1, visited) ||
+        wordSearch(x, y + 1, index + 1, visited) ||
+        wordSearch(x, y - 1, index + 1, visited)
+
+      visited.remove(x to y)
+      return result
     }
 
     val visited = mutableSetOf<Pair<Int, Int>>()
     for (i in 0 until m) {
       for (j in 0 until n) {
-        visited.clear()
         if (wordSearch(i, j, 0, visited)) {
           return true
         }
@@ -43,6 +36,9 @@ object WordSearch {
     return false
   }
 
+  /**
+   * basically same as [wordSearch1], but marking the visited grid by `board[x][y] = '0'`
+   */
   fun wordSearch2(board: Array<CharArray>, word: String): Boolean {
     val m = board.size
     val n = board[0].size
