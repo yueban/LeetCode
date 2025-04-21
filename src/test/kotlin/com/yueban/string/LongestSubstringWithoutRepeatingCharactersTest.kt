@@ -2,6 +2,7 @@ package com.yueban.string
 
 import com.yueban.string.LongestSubstringWithoutRepeatingCharacters.longestSubstringWithoutRepeatingCharacters1
 import com.yueban.string.LongestSubstringWithoutRepeatingCharacters.longestSubstringWithoutRepeatingCharacters2
+import com.yueban.string.LongestSubstringWithoutRepeatingCharacters.longestSubstringWithoutRepeatingCharacters3
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -28,6 +29,13 @@ class LongestSubstringWithoutRepeatingCharactersTest {
   fun longestSubstringWithoutRepeatingCharacters2Test() {
     testCases.forEach { case ->
       assertEquals(case.result, longestSubstringWithoutRepeatingCharacters2(case.s))
+    }
+  }
+
+  @Test
+  fun longestSubstringWithoutRepeatingCharacters3Test() {
+    testCases.forEach { case ->
+      assertEquals(case.result, longestSubstringWithoutRepeatingCharacters3(case.s))
     }
   }
 }
