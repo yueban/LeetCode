@@ -4,31 +4,22 @@ object MinimumWindowSubstring {
   /**
    * brutal way to solve the problem, use a slide window to search s.
    * every time moving the window, determine if all the characters of t are covered in window.
-   * keep recording the minimum window.
+   * keep tracking the minimum window.
    */
   fun minimumWindowSubstring1(s: String, t: String): String {
-    val tCharsCount = mutableMapOf<Char, Int>()
-    t.forEach {
-      if (tCharsCount.containsKey(it)) {
-        tCharsCount[it] = tCharsCount[it]!! + 1
-      } else {
-        tCharsCount[it] = 1
-      }
-    }
+    val tCharsCount = IntArray(128)
+    // counting t chars
+    t.forEach { tCharsCount[it.code]++ }
 
     var l = 0
     var resultLength = Int.MAX_VALUE
     var result = ""
 
     for (i in 0 until s.length) {
-      if (tCharsCount.containsKey(s[i])) {
-        tCharsCount[s[i]] = tCharsCount[s[i]]!! - 1
-      }
-      if (tCharsCount.all { it.value <= 0 }) {
-        while (!tCharsCount.containsKey(s[l]) || (tCharsCount[s[l]] ?: 0) < 0) {
-          if (tCharsCount.containsKey(s[l])) {
-            tCharsCount[s[l]] = tCharsCount[s[l]]!! + 1
-          }
+      tCharsCount[s[i].code]--
+      if (tCharsCount.all { it <= 0 }) {
+        while (tCharsCount[s[l].code] < 0) {
+          tCharsCount[s[l].code]++
           l++
         }
         if (i - l + 1 < resultLength) {
