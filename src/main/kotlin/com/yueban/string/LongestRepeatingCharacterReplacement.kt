@@ -1,5 +1,6 @@
 package com.yueban.string
 
+import com.yueban.string.LongestRepeatingCharacterReplacement.longestRepeatingCharacterReplacement1
 import kotlin.math.max
 
 object LongestRepeatingCharacterReplacement {
@@ -15,15 +16,16 @@ object LongestRepeatingCharacterReplacement {
       // preserve the most frequent chars, convert all other chars to the most frequent char,
       // there are at most k other chars can be converted.
       val currentLength = r - l + 1
+      // current substring s[l,r] is valid, make r++
       if (currentLength - charCount.max() - k <= 0) {
         result = max(result, currentLength)
         r++
       } else {
-        // current char cannot be a valid part in the current (l to r) string
+        // current substring s[l,r] is invalid, make l++
         charCount[s[l] - 'A']--
-        // current char count - 1
-        charCount[s[r] - 'A']--
         l++
+        // undo `charCount[s[r] - 'A']++`
+        charCount[s[r] - 'A']--
       }
     }
 
@@ -34,6 +36,8 @@ object LongestRepeatingCharacterReplacement {
    * At each iteration step, the "Longest Repeating Character Replacement" is (k + max frequent char count) in current slide window.
    * So we can simplify the problem to finding max frequent char count in all slide windows.
    * Then at each iteration step, if (currentLength - max frequent char count > k), we can simply move l pointer + 1.
+   *
+   * Basically same as [longestRepeatingCharacterReplacement1], but simplify the way to calculate maxFrequentChars and move l pointer.
    */
   fun longestRepeatingCharacterReplacement2(s: String, k: Int): Int {
     val charCount = IntArray(26)
