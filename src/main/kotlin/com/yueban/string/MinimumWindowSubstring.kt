@@ -32,6 +32,10 @@ object MinimumWindowSubstring {
     return result
   }
 
+  /**
+   * counting remaining length of chars in t string that are not covered by current substring window instead of
+   * counting every char in t string, making it faster to calculate if all the chars in t have been covered.
+   */
   fun minimumWindowSubstring2(s: String, t: String): String {
     val tCharsCount = IntArray(128)
     // counting t chars
