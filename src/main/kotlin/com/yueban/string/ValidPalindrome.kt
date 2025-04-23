@@ -36,7 +36,7 @@ object ValidPalindrome {
     var r = s.length - 1
 
     while (l < r) {
-      val f = when (s[l]) {
+      val leftChar = when (s[l]) {
         in 'a'..'z',
         in '0'..'9',
         -> s[l]
@@ -49,7 +49,7 @@ object ValidPalindrome {
         }
       }
 
-      val b = when (s[r]) {
+      val rightChar = when (s[r]) {
         in 'a'..'z',
         in '0'..'9',
         -> s[r]
@@ -62,7 +62,7 @@ object ValidPalindrome {
         }
       }
 
-      if (f != b) return false
+      if (leftChar != rightChar) return false
 
       l++
       r--
