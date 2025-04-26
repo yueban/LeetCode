@@ -14,7 +14,7 @@ object BinaryTreeLevelOrderTraversal {
       val values = mutableListOf<Int>()
 
       val size = queue.size
-      for (i in 0 until size) {
+      (0 until size).forEach { _ ->
         val node = queue.poll()
         values.add(node.`val`)
         node.left?.let { queue.add(it) }
