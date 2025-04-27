@@ -1,5 +1,7 @@
 package com.yueban.tree
 
+import com.yueban.tree.KthSmallestElementInABST.kthSmallestElementInABST1
+
 object KthSmallestElementInABST {
   fun kthSmallestElementInABST1(root: TreeNode?, k: Int): Int {
     val list = mutableListOf<Int>()
@@ -7,15 +9,11 @@ object KthSmallestElementInABST {
     fun traverseBTS(node: TreeNode?) {
       if (node == null) return
 
-      if (node.left != null) {
-        traverseBTS(node.left)
-      }
+      node.left?.apply(::traverseBTS)
 
       list.add(node.`val`)
 
-      if (node.right != null) {
-        traverseBTS(node.right)
-      }
+      node.right?.apply(::traverseBTS)
     }
 
     traverseBTS(root)
