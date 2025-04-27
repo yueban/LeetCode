@@ -2,20 +2,22 @@ package com.yueban.tree
 
 object ConstructBinaryTreeFromPreorderAndInorderTraversal {
   /**
-   * 1. preorder always starts with the root node, so we can divide it into subtrees(preStart, preEnd), every preStart is the root of a subtree.
-   * 2. every node in inorder always has a smaller index to all its right nodes, so we can divide it into subtrees(inStart, inEnd).
-   * 3. first we pick the root of subtree from preorder(preStart), then we search the index of it in inorder as rootIndex,
-   * so that we use rootIndex to separate inorder into two subtrees. besides, we know the size of two subtrees.
-   * 4. for preorder, as we have already known the size of two subtrees and preorder always starts from a root node of the subtree and then traverse the left part first.
-   * so we can deduce the left subtree of preorder[preStart + 1, preStart + leftSize], as well as the right part preorder[preEnd + rightSize +1, preEnd].
-   * (+1 means omitting the subtree root itself)
+   * 1. `preorder` always starts with the root node, so we can divide it into subtrees `preorder[preStart, preEnd]`, every
+   * `preStart` is the root of a subtree.
+   * 2. every node in `inorder` always has a smaller index to all its right nodes, so we can divide it into subtrees
+   * `inorder[inStart, inEnd]`.
+   * 3. first we pick the root of subtree from `preorder[preStart]`, then we search the index of it in inorder as `rootIndex`,
+   * then we use `rootIndex` to separate `inorder` into two subtrees. besides, we know the size of two subtrees.
+   * 4. for `preorder`, as we have already known the size of two subtrees and `preorder` always starts from a root node of the subtree
+   * and then traverse the left part first. so we can deduce the left subtree of `preorder[preStart + 1, preStart + leftSize]`,
+   * as well as the right part `preorder[preEnd - rightSize +1, preEnd]`. (+1 means omitting the subtree root itself)
    */
   fun constructBinaryTreeFromPreorderAndInorderTraversal1(preorder: IntArray, inorder: IntArray): TreeNode? {
     val inorderMap = inorder.withIndex().associate { it.value to it.index }
 
     fun buildTree(preStart: Int, preEnd: Int, inStart: Int, inEnd: Int): TreeNode? {
       if (preStart > preEnd || inStart > inEnd) return null
-      if (preStart == preEnd || inStart == inEnd) return TreeNode(inorder[inStart])
+      if (preStart == preEnd || inStart == inEnd) return TreeNode(preorder[preStart])
 
       val root = TreeNode(preorder[preStart])
 
