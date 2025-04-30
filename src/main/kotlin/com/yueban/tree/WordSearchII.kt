@@ -66,10 +66,11 @@ object WordSearchII {
   fun wordSearchII2(board: Array<CharArray>, words: Array<String>): List<String> {
     val trie = Trie()
     words.forEach { trie.insert(it) }
-    val foundWords = mutableSetOf<String>()
 
+    val foundWords = mutableSetOf<String>()
     val m = board.size
     val n = board[0].size
+
     fun dfs(x: Int, y: Int, currentWord: StringBuilder, node: TrieNode) {
       if (x < 0 || x >= m || y < 0 || y >= n || board[x][y] == '#') return
 
