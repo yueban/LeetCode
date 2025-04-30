@@ -19,6 +19,7 @@ object TopKFrequentElements {
     nums.forEach { n ->
       map[n] = map.getOrPut(n) { 0 } + 1
     }
+
     val queue = PriorityQueue<Map.Entry<Int, Int>>(compareBy { it.value })
     map.forEach {
       queue.offer(it)
