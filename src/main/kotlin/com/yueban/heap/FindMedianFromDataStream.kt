@@ -6,6 +6,10 @@ interface FindMedianFromDataStream {
   fun addNum(num: Int)
   fun findMedian(): Double
 
+  /**
+   * use a `smallerQueue` to store smaller half values, use a `largerQueue` to store larger half values.
+   * everytime adding a num, balance the sizes of two queues to ensure `smallerQueue.size == largerQueue.size + 0/1`
+   */
   class FindMedianFromDataStream1 : FindMedianFromDataStream {
     private val smallerQueue = PriorityQueue<Int>(compareByDescending { it })
     private val largerQueue = PriorityQueue<Int>()
@@ -17,7 +21,6 @@ interface FindMedianFromDataStream {
         largerQueue.offer(num)
       }
 
-      // balance two queues, ensure (smallerQueue.size == largerQueue.size) or (smallerQueue.size == largerQueue.size + 1)
       if (smallerQueue.size > largerQueue.size + 1) {
         largerQueue.offer(smallerQueue.poll())
       } else if (largerQueue.size > smallerQueue.size) {
@@ -26,7 +29,7 @@ interface FindMedianFromDataStream {
     }
 
     override fun findMedian(): Double {
-      return if ((largerQueue.size + smallerQueue.size) % 2 == 0) {
+      return if (largerQueue.size == smallerQueue.size) {
         (smallerQueue.peek() + largerQueue.peek()) * 1.0 / 2
       } else {
         smallerQueue.peek().toDouble()
@@ -35,7 +38,8 @@ interface FindMedianFromDataStream {
   }
 
   /**
-   * specific for all integer numbers from the stream are in the range [0, 100]
+   * this solution only works providing all numbers are in the range [0, 100].
+   * record count of all numbers in an array and the total number count.
    */
   class FindMedianFromDataStream2 : FindMedianFromDataStream {
     private val count = IntArray(101)
