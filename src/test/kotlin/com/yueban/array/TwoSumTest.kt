@@ -22,21 +22,21 @@ class TwoSumTest {
   @Test
   fun twoSum1Test() {
     testCases.forEach { case ->
-      assertEquals(case.result, twoSum1(case.nums, case.target))
+      assertEquals(case.result, twoSum1(case.nums, case.target).toSet())
     }
   }
 
   @Test
   fun twoSum2Test() {
     testCases.forEach { case ->
-      assertEquals(case.result, twoSum2(case.nums, case.target))
+      assertEquals(case.result, twoSum2(case.nums, case.target).toSet())
     }
   }
 
   @Test
   fun twoSum3Test() {
     testCases.forEach { case ->
-      assertEquals(case.result, twoSum3(case.nums, case.target))
+      assertEquals(case.result, twoSum3(case.nums, case.target).toSet())
     }
   }
 }
