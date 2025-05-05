@@ -22,8 +22,8 @@ object BestTimeToBuyAndSellStock {
     prices.forEach { price ->
       if (price < buyPrice) {
         buyPrice = price
-      } else if (result < price - buyPrice) {
-        result = price - buyPrice
+      } else {
+        result = max(result, price - buyPrice)
       }
     }
     return result
