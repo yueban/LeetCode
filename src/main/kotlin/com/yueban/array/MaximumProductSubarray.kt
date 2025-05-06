@@ -5,17 +5,13 @@ import kotlin.math.max
 object MaximumProductSubarray {
   fun maximumProductSubarray1(nums: IntArray): Int {
     var result = Int.MIN_VALUE
-    for (n in nums) {
-      result = max(result, n)
-    }
-
     var curMax = 1
     var curMin = 1
 
     for (n in nums) {
-      curMax = maxOf(curMax * n, curMin * n, n)
-      curMin = minOf(curMax * n, curMin * n, n)
-
+      val temp = curMax * n
+      curMax = maxOf(temp, curMin * n, n)
+      curMin = minOf(temp, curMin * n, n)
       result = max(result, curMax)
     }
 
