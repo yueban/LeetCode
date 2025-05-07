@@ -17,12 +17,14 @@ object SearchInRotatedSortedArray {
       val middle = (left + right) / 2
       if (nums[middle] == target) return middle
       if (nums[left] <= nums[middle]) {
+        // left half is sorted
         if (nums[left] <= target && target < nums[middle]) {
           right = middle - 1
         } else {
           left = middle + 1
         }
       } else {
+        // right half is sorted
         if (nums[middle] < target && target <= nums[right]) {
           left = middle + 1
         } else {
