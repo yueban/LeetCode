@@ -1,8 +1,13 @@
 package com.yueban.array
 
+import com.yueban.array.ThreeSum.threeSum1
+import com.yueban.array.ThreeSum.threeSum3
 import java.util.*
 
 object ThreeSum {
+  /**
+   * convert three sum problem to two sum problem.
+   */
   fun threeSum1(nums: IntArray): List<List<Int>> {
     val map = HashMap<Int, Int>()
     for (i in 0 until nums.size) {
@@ -35,6 +40,10 @@ object ThreeSum {
     }
   }
 
+  /**
+   * basically same as [threeSum1], but sort nums for later comparison and match the expected sorted output instead of
+   * sorting every result set and sorting the whole results list.
+   */
   fun threeSum2(nums: IntArray): List<List<Int>> {
     Arrays.sort(nums)
 
@@ -62,8 +71,49 @@ object ThreeSum {
     return result.toList()
   }
 
+  /**
+   * skip same num, too small num, too large num on iteration.
+   */
   fun threeSum3(nums: IntArray): List<List<Int>> {
-    // sorted array for later comparison and match the expected sorted output
+    nums.sort()
+
+    val map = HashMap<Int, Int>()
+    for (i in 0 until nums.size) {
+      map[nums[i]] = i
+    }
+
+    val result = ArrayList<List<Int>>()
+
+    val max = nums[nums.size - 2] + nums[nums.size - 1]
+
+    for (i in 0..nums.size - 3) {
+      val curr = nums[i]
+      // skip same num
+      if (i > 0 && curr == nums[i - 1]) continue
+      // skip too small num
+      if (curr + max < 0) continue
+      // skip too large num
+      if (curr + nums[i + 1] + nums[i + 2] > 0) break
+
+      // two sum question
+      val need = -curr
+
+      for (j in i + 1 until nums.size) {
+        if (j > i + 1 && nums[j] == nums[j - 1]) continue
+        val complement = need - nums[j]
+        if (map.containsKey(complement) && map[complement]!! > j) {
+          result.add(listOf(nums[i], nums[j], complement))
+        }
+      }
+    }
+
+    return result
+  }
+
+  /**
+   * optimize solution to two sum problem, which has better performance than [threeSum3] on big data.
+   */
+  fun threeSum4(nums: IntArray): List<List<Int>> {
     nums.sort()
 
     val result = ArrayList<List<Int>>()
@@ -97,45 +147,6 @@ object ThreeSum {
             // skip same right num
             while (l < r && nums[r] == nums[r + 1]) r--
           }
-        }
-      }
-    }
-
-    return result
-  }
-
-  /**
-   * worse than [threeSum3] on big data
-   */
-  fun threeSum4(nums: IntArray): List<List<Int>> {
-    // sorted array for later comparison and match the expected sorted output
-    nums.sort()
-    val map = HashMap<Int, Int>()
-    for (i in 0 until nums.size) {
-      map[nums[i]] = i
-    }
-
-    val result = ArrayList<List<Int>>()
-
-    val max = nums[nums.size - 2] + nums[nums.size - 1]
-
-    for (i in 0..nums.size - 3) {
-      val curr = nums[i]
-      // skip same num
-      if (i > 0 && curr == nums[i - 1]) continue
-      // skip too small num
-      if (curr + max < 0) continue
-      // skip too large num
-      if (curr + nums[i + 1] + nums[i + 2] > 0) break
-
-      // two sum question
-      val need = -curr
-
-      for (j in i + 1 until nums.size) {
-        if (j > i + 1 && nums[j] == nums[j - 1]) continue
-        val complement = need - nums[j]
-        if (map.containsKey(complement) && map[complement]!! > j) {
-          result.add(listOf(nums[i], nums[j], complement))
         }
       }
     }
