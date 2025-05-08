@@ -1,9 +1,13 @@
 package com.yueban.array
 
+import com.yueban.array.ContainerWithMostWater.containerWithMostWater2
 import kotlin.math.max
 import kotlin.math.min
 
 object ContainerWithMostWater {
+  /**
+   * brutal way
+   */
   fun containerWithMostWater1(height: IntArray): Int {
     var max = 0
     for (i in 0 until height.size) {
@@ -14,6 +18,9 @@ object ContainerWithMostWater {
     return max
   }
 
+  /**
+   * move the smaller pointer (l or r) in loop.
+   */
   fun containerWithMostWater2(height: IntArray): Int {
     var l = 0
     var r = height.size - 1
@@ -30,6 +37,9 @@ object ContainerWithMostWater {
     return max
   }
 
+  /**
+   * basically same as [containerWithMostWater2], but with a more efficient way to move pointer.
+   */
   fun containerWithMostWater3(height: IntArray): Int {
     var l = 0
     var r = height.size - 1
