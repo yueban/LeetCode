@@ -11,6 +11,9 @@ object CountingBits {
     return result
   }
 
+  /**
+   * division by 2 means right shift by 1.
+   */
   fun countingBits2(n: Int): IntArray {
     val result = IntArray(n + 1)
     for (i in 0 until result.size) {
