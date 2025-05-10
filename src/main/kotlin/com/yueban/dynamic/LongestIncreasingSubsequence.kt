@@ -3,6 +3,9 @@ package com.yueban.dynamic
 import kotlin.math.max
 
 object LongestIncreasingSubsequence {
+  /**
+   * `dp[i]` means the length of longest increasing subsequence for elements nums[0..i]
+   */
   fun longestIncreasingSubsequence1(nums: IntArray): Int {
     val dp = IntArray(nums.size) { 1 }
     var result = 1
@@ -20,8 +23,15 @@ object LongestIncreasingSubsequence {
   }
 
   /**
-   * lis is not the current longest increasing subsequence.
-   * lis maintains a list of “buckets” where each bucket represents a valid subsequence.
+   * lis is not the current longest increasing subsequence. lis maintains a list of “buckets” where each bucket
+   * represents a valid subsequence.
+   *
+   * lis literally represents the possibly smallest number for a increasing subsequence. which means `lis[0]` is the
+   * smallest increasing subsequence of length 1. `lis[0], lis[1]` is the smallest increasing subsequence of length 2.
+   * `lis[0]...lis[n]` is the smallest increasing subsequence of length n+1.
+   *
+   * Thus, the longest increasing subsequence is `lis[0]...lis[ptr]`, and its length is ptr + 1.
+   *
    * eg.
    *    For input nums [1,3,5,2,4].
    *    Firstly, set `lis[0] = nums[0] = 1` and `ptr = 0`.
@@ -32,12 +42,6 @@ object LongestIncreasingSubsequence {
    *      so `lis[1] = nums[3] = 2` and `ptr = 2`.
    *      for `nums[4]`, `nums[4] < lis[2]`, find the smallest number that larger than `nums[4]` which is `lis[2]`, and replace it with `nums[4]`,
    *      so `lis[2] = nums[4] = 4` and `ptr = 2`.
-   *
-   * So lis literally represents the possibly smallest number for a increasing subsequence. which means `lis[0]` is the
-   * smallest increasing subsequence of length 1. `lis[0], lis[1]` is the smallest increasing subsequence of length 2.
-   * `lis[0]...lis[n]` is the smallest increasing subsequence of length n+1.
-   *
-   * Thus, the longest increasing subsequence is `lis[0]...lis[ptr]`, and its length is ptr + 1.
    */
   fun longestIncreasingSubsequence2(nums: IntArray): Int {
     val lis = IntArray(nums.size)
