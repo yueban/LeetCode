@@ -1,6 +1,9 @@
 package com.yueban.dynamic
 
 object WordBreak {
+  /**
+   * `dp[i]` represents if `s[0..i)` can be segmented by words.
+   */
   fun wordBreak1(s: String, wordDict: List<String>): Boolean {
     val dp = BooleanArray(s.length + 1)
     dp[0] = true
@@ -15,6 +18,12 @@ object WordBreak {
     return dp[s.length]
   }
 
+  /**
+   * `dp[i]` represents if `s[0..i)` can be segmented by words.
+   *    `dp[i] == -1` means idle state;
+   *    `dp[i] == 0` means `s[0..i)` cannot be segmented by words;
+   *    `dp[i] == 1` means `s[0..i)` can be segmented by words.
+   */
   fun wordBreak2(s: String, wordDict: List<String>): Boolean {
     fun dfs(s: String, dp: IntArray, start: Int, wordDict: MutableSet<String>): Boolean {
       // start reaches s.length means the entire string has been successfully segmented
