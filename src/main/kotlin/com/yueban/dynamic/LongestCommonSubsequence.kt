@@ -3,6 +3,13 @@ package com.yueban.dynamic
 import kotlin.math.max
 
 object LongestCommonSubsequence {
+  /**
+   * `dp[i][j]` represents the length of longest common subsequence for `text1[0..i)` and `text2[0..j)`.
+   *
+   * for every `dp[i][j]`:
+   *    if `text1[i-1] == text[j-1]`, then `dp[i][j] = dp[i-1][j-1] + 1`.
+   *    else `dp[i][j] = max(dp[i-1][j], dp[i][j-1])`
+   */
   fun longestCommonSubsequence1(text1: String, text2: String): Int {
     val dp = Array(text1.length + 1) { IntArray(text2.length + 1) }
 
