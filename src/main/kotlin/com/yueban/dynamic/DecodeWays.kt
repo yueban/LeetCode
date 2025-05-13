@@ -2,7 +2,7 @@ package com.yueban.dynamic
 
 object DecodeWays {
   /**
-   * brutal way to solve the problem, O(2^n)
+   * brutal way to solve the problem, O(2^n). can be optimized by using a map cache (index, numberOfWays).
    */
   fun decodeWays1(s: String): Int {
     fun decodeWays(index: Int): Int {
@@ -36,6 +36,8 @@ object DecodeWays {
 
   /**
    * iterate from the end of string to start. `dp[i]` means the amount of ways to decode s till `s[i..n-1]`.
+   * Specifically, dp[n] represents the initial value for accumulating which is `1` way.
+   *
    * for every `s[i]`, there are three circumstances:
    *    1. `s[i]` is '0', so substring `s[i..n-1]` starts with '0', means there is no possible way to decode `s[i..n-1]`, so `dp[i]` = 0
    *    2. `s[i]` is not '0', we accumulate two options for `dp[i]`
