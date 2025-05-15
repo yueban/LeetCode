@@ -1,11 +1,14 @@
 package com.yueban.graph
 
+import com.yueban.graph.NumberOfIslands.numberOfIslands1
+
 object NumberOfIslands {
   fun numberOfIslands1(grid: Array<CharArray>): Int {
     if (grid.isEmpty() || grid[0].isEmpty()) return 0
 
     val m = grid.size
     val n = grid[0].size
+    // mark all lands (grids with value 1)
     val lands = mutableSetOf<Pair<Int, Int>>()
 
     for (i in 0 until m) {
@@ -18,10 +21,9 @@ object NumberOfIslands {
 
     val visited = Array(m) { BooleanArray(n) }
 
+    // inside dfs(x,y), remove all adjacent lands with land(x,y)
     fun dfs(x: Int, y: Int) {
-      if (x < 0 || y < 0 || x >= m || y >= n) return
-      if (visited[x][y]) return
-      if (grid[x][y] == '0') return
+      if (x < 0 || y < 0 || x >= m || y >= n || visited[x][y] || grid[x][y] == '0') return
 
       lands.remove(x to y)
       visited[x][y] = true
@@ -33,6 +35,8 @@ object NumberOfIslands {
     }
 
     var result = 0
+    // in loop, everytime pick a land from lands, remove all adjacent lands from lands set by dfs function.
+    // so the loop count is exactly the lands count.
     while (lands.isNotEmpty()) {
       val land = lands.first()
       dfs(land.first, land.second)
