@@ -3,6 +3,12 @@ package com.yueban.graph
 import kotlin.math.max
 
 object LongestConsecutiveSequence {
+  /**
+   * convert nums to numSet to filter same numbers. use `l` and `r` to mark the boundaries of current longest consecutive
+   * sequence. for each `nums[i]` in the iteration:
+   *    1. if `nums[i] in (l,r)`, which means `nums[i]` has already been iterated by previous sequence, skip it.
+   *    2. else, search numSet to find boundaries based on `nums[i]`.
+   */
   fun longestConsecutiveSequence1(nums: IntArray): Int {
     val numSet = nums.toSet()
 
@@ -33,7 +39,6 @@ object LongestConsecutiveSequence {
     if (nums.isEmpty()) return 0
 
     nums.sort()
-    println(nums.joinToString())
 
     var result = 0
     var count = 1
