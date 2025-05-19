@@ -1,22 +1,24 @@
 package com.yueban.linkedlist
 
+import com.yueban.linkedlist.ReverseLinkedList.reverseLinkedList1
+
 object ReverseLinkedList {
   fun reverseLinkedList1(head: ListNode?): ListNode? {
     if (head?.next == null) return head
 
     var prev = head
-    var temp = ListNode(prev.`val`)
+    var result = ListNode(prev.`val`)
 
     while (prev?.next != null) {
       ListNode(prev.next!!.`val`).also {
-        it.next = temp
-        temp = it
+        it.next = result
+        result = it
       }
 
       prev = prev.next
     }
 
-    return temp
+    return result
   }
 
   /**
