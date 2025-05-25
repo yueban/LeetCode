@@ -51,13 +51,13 @@ object MinimumWindowSubstring {
     while (r < s.length) {
       val rightChar = s[r]
       tCharsCount[rightChar.code]--
-      // only chars in t string can be >= 0 after previous line (decrease count of char)
-      // any other chars that not in t string, their initial value in tCharCount is 0, and should be negative after previous line.
+      // only chars in t string can be >= 0 after previous line (decrease count of char).
+      // any other chars that not in t string, their initial value in tCharCount is 0, and should be negative after previous substraction.
       if (tCharsCount[rightChar.code] >= 0) {
         tLength--
       }
 
-      // tLength == 0 means all chars in t can be covered by current window (l,r), now we move l pointer
+      // tLength == 0 means all chars in t can be covered by current window (l,r), now we move l pointer and count results.
       while (tLength == 0) {
         val size = r - l + 1
         if (size < resultMinLength) {
@@ -67,7 +67,7 @@ object MinimumWindowSubstring {
 
         val leftChar = s[l]
         tCharsCount[leftChar.code]++
-        // only chars in t string can be > 0 after previous line (increase count of char)
+        // only chars in t string can be > 0 after previous adding (increase count of char).
         // any other chars that not in t string, their initial value in tCharCount is 0, and we decrease their count value
         // in outer loop (tCharsCount[rightChar.code]--). so after we increase their count value here, the result count
         // can only be <= 0 (0 is their initial value).
