@@ -1,5 +1,8 @@
 package com.yueban.string
 
+import com.yueban.string.ValidParentheses.validParentheses1
+import com.yueban.string.ValidParentheses.validParentheses2
+
 object ValidParentheses {
   fun validParentheses1(s: String): Boolean {
     fun Char.mark() = when (this) {
@@ -34,12 +37,14 @@ object ValidParentheses {
     val charStack = ArrayDeque<Char>()
 
     s.forEach {
-      if (it == '(' || it == '[' || it == '{') {
-        charStack.addLast(it)
-      } else {
-        val lastChar = charStack.removeLastOrNull() ?: return false
-        if ((it == ')' && lastChar != '(') || (it == ']' && lastChar != '[') || (it == '}' && lastChar != '{')) {
-          return false
+      when (it) {
+        '(', '[', '{' -> charStack.addLast(it)
+
+        else -> {
+          val lastChar = charStack.removeLastOrNull() ?: return false
+          if ((it == ')' && lastChar != '(') || (it == ']' && lastChar != '[') || (it == '}' && lastChar != '{')) {
+            return false
+          }
         }
       }
     }
