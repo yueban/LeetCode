@@ -2,6 +2,7 @@ package com.yueban.string
 
 import com.yueban.string.LongestPalindromicSubstring.longestPalindromicSubstring1
 import com.yueban.string.LongestPalindromicSubstring.longestPalindromicSubstring2
+import com.yueban.string.LongestPalindromicSubstring.longestPalindromicSubstring3
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -28,6 +29,13 @@ class LongestPalindromicSubstringTest {
   fun longestPalindromicSubstring2Test() {
     testCases.forEach { case ->
       assertEquals(case.result, longestPalindromicSubstring2(case.s))
+    }
+  }
+
+  @Test
+  fun longestPalindromicSubstring3Test() {
+    testCases.forEach { case ->
+      assertEquals(case.result, longestPalindromicSubstring3(case.s))
     }
   }
 }
